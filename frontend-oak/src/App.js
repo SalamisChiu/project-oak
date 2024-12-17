@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GoogleLogin from "./components/GoogleLogin";
 import ShortUrlApp from "./components/ShortUrlApp";
 
 function App() {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState("");
-
+    console.log("API BASE URL:", process.env.REACT_APP_API_BASE_URL);
     // 初始化時檢查 localStorage
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
@@ -36,13 +37,15 @@ function App() {
     };
 
     return (
-        <div>
-            {!user ? (
-                <GoogleLogin onSuccess={handleLoginSuccess} />
-            ) : (
-                <ShortUrlApp token={token} onLogout={handleLogout} />
-            )}
-        </div>
+        <BrowserRouter>  {/* 添加這個包裹 */}
+            <div>
+                {!user ? (
+                    <GoogleLogin onSuccess={handleLoginSuccess} />
+                ) : (
+                    <ShortUrlApp token={token} onLogout={handleLogout} />
+                )}
+            </div>
+        </BrowserRouter>
     );
 }
 

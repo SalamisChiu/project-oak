@@ -17,8 +17,10 @@ from google.cloud import secretmanager
 from loguru import logger
 # 設定環境變數
 
-print("ENV:",os.getenv("ENV"))
-PROJECT_ID = "fuller-oak1215"
+GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')
+PUBSUB_TOPIC_NAME = os.getenv('PUBSUB_TOPIC_NAME')
+BQ_DATASET_NAME = os.getenv('BQ_DATASET_NAME')
+BQ_TABLE_NAME = os.getenv('BQ_TABLE_NAME')
 logger.info(f"Current ENV value: {os.getenv('ENV')}")
 # 加載 .env 文件
 BASE_DIR = Path(__file__).resolve().parent.parent

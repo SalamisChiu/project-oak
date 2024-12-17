@@ -16,11 +16,11 @@ from google.cloud import bigquery
 from loguru import logger
 bq_client = bigquery.Client()
 PUBLISHER = pubsub_v1.PublisherClient()
-TOPIC_PATH = PUBLISHER.topic_path("fuller-oak1215", "oak-pubsub")
-BQ_TABLE = "fuller-oak1215.short_url_data.stats"  #
-PROJECT_ID = "fuller-oak1215"
-DATASET_NAME = "short_url_data"
-TABLE_NAME = "stats"
+TOPIC_PATH = PUBLISHER.topic_path(settings.GCP_PROJECT_ID, settings.PUBSUB_TOPIC_NAME)
+BQ_TABLE = f"{settings.GCP_PROJECT_ID}.{settings.BQ_DATASET_NAME}.{settings.BQ_TABLE_NAME}"
+PROJECT_ID = settings.GCP_PROJECT_ID
+DATASET_NAME = settings.BQ_DATASET_NAME
+TABLE_NAME = settings.BQ_TABLE_NAME
 
 
 @csrf_exempt

@@ -1,5 +1,0 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/fuller-oak1215/backend-django:latest', '.']
-images:
-- 'gcr.io/fuller-oak1215/backend-django:latest'
