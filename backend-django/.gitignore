@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+*.out
+
+# Local environment variables
+.env
+*.env.*
+
+# Django specific
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+
+# Static files and media
+/static/
+media/
+
+# Pipenv, Virtualenv, and venv
+Pipfile
+Pipfile.lock
+.venv/
+venv/
+env/
+virtualenv/
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+# Secrets and credentials
+*.json  # 避免將 Firebase credential 等秘密 JSON 檔案提交上去
+
+# Miscellaneous
+*.bak
+*.swp
